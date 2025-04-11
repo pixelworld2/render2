@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Store - Minecraft Server</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script>
+      function copyToClipboard(text) {
+        navigator.clipboard.writeText(text).then(() => {
+          showModal(`${text} copied to clipboard!`);
+        });
+      }
+
+      function showModal(message) {
+        const modal = document.getElementById("custom-modal");
+        const modalMessage = document.getElementById("modal-message");
+        modalMessage.textContent = message;
+        modal.style.display = "block";
+      }
+
+      function closeModal() {
+        const modal = document.getElementById("custom-modal");
+        modal.style.display = "none";
+      }
+    </script>
+  </head>
+  <body class="store-page">
+    <div class="container">
+      <nav class="main-nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="explore.html">Explore</a></li>
+          <li><a href="hosting.html">Hosting</a></li>
+          <li><a href="network.html">Network</a></li>
+          <li><a href="store.html" class="active">Store</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <main>
+        <section class="content store-section">
+          <!-- Logo Image -->
+          <div class="logo-container">
+            <img
+              src="storelogo.jpg"
+              alt="Minecraft Store Logo"
+              class="store-logo heart-animation"
+            />
+          </div>
+          <!-- Server IP and Discord Buttons -->
+          <div class="cta-buttons">
+            <div
+              class="cta-button"
+              onclick="copyToClipboard('world.anagara.fun')"
+            >
+              <span class="icon">🔥</span>
+              <span class="text">world.anagara.fun</span>
+              <span class="subtext">Click to Copy</span>
+            </div>
+            <a
+              href="https://discord.gg/gBZqbtvPV9"
+              class="cta-button"
+              target="_blank"
+            >
+              <span class="icon">🎮</span>
+              <span class="text">Discord Server</span>
+              <span class="subtext">Click to Join</span>
+            </a>
+          </div>
+          <h1>Welcome to the Minecraft Server Store</h1>
+          <p>Enhance your gameplay with our exclusive packages.</p>
+          <div class="store-categories">
+            <div class="category-card">
+              <h3>Coins [LifeSteal]</h3>
+              <p>Purchase coins for LifeSteal mode.</p>
+            </div>
+            <div class="category-card">
+              <h3>LifeSteal Ranks</h3>
+              <p>Upgrade your rank in LifeSteal mode.</p>
+            </div>
+            <div class="category-card">
+              <h3>Coins [Classic]</h3>
+              <p>Purchase coins for Classic mode.</p>
+            </div>
+            <div class="category-card">
+              <h3>Classic Ranks</h3>
+              <p>Upgrade your rank in Classic mode.</p>
+            </div>
+          </div>
+          <div class="featured-packages">
+            <div class="package-card">
+              <h3>Boss Rank (+3200 Coins)</h3>
+              <p>Price: 22.00 USD</p>
+            </div>
+            <div class="package-card">
+              <h3>Supreme Rank (+3200 Coins)</h3>
+              <p>Price: 22.00 USD</p>
+            </div>
+            <div class="package-card">
+              <h3>15600 Coins [LifeSteal]</h3>
+              <p>Price: 12.00 USD</p>
+            </div>
+            <div class="package-card">
+              <h3>Deadliest Rank (+1000 Coins)</h3>
+              <p>Price: 4.70 USD</p>
+            </div>
+          </div>
+          <div class="support-info">
+            <h2>Support</h2>
+            <p>
+              Need help? Contact us at support@example.com or join our Discord
+              server.
+            </p>
+          </div>
+        </section>
+      </main>
+      <footer>
+        <p>&copy; 2024 Minecraft Server Store. All rights reserved.</p>
+      </footer>
+    </div>
+
+    <!-- Custom Modal -->
+    <div id="custom-modal" class="modal">
+      <div class="modal-content">
+        <p id="modal-message"></p>
+        <button onclick="closeModal()" class="modal-button">OK</button>
+      </div>
+    </div>
+  </body>
+</html>

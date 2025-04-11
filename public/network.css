@@ -1,0 +1,230 @@
+.network-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.network-header {
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
+    border-radius: 25px;
+    padding: 2rem;
+    margin-bottom: 3rem;
+}
+
+.server-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+.server-logo {
+    height: 80px;
+    width: auto;
+}
+
+.server-actions {
+    display: flex;
+    gap: 1rem;
+}
+
+.copy-ip {
+    background: rgba(255, 59, 59, 0.2);
+    border: 1px solid rgba(255, 59, 59, 0.3);
+    color: #ffffff;
+    padding: 0.8rem 1.5rem;
+    border-radius: 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.copy-ip:hover {
+    background: rgba(255, 59, 59, 0.3);
+    transform: translateY(-2px);
+}
+
+.copy-ip.copied {
+    background: rgba(40, 167, 69, 0.3);
+    border-color: rgba(40, 167, 69, 0.4);
+}
+
+.discord-btn {
+    background: rgba(88, 101, 242, 0.3);
+    border: 1px solid rgba(88, 101, 242, 0.4);
+    color: #ffffff;
+    padding: 0.8rem 1.5rem;
+    border-radius: 12px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.discord-btn:hover {
+    background: rgba(88, 101, 242, 0.4);
+    transform: translateY(-2px);
+}
+
+.network-stats {
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
+    border-radius: 25px;
+    padding: 2rem;
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.total-players h2 {
+    color: #ff3b3b;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.total-players .player-count {
+    color: #ffffff;
+    font-size: 3.5rem;
+    font-weight: bold;
+    text-shadow: 0 0 20px rgba(255, 59, 59, 0.5);
+}
+
+.total-players p {
+    color: #f0f0f0;
+    font-size: 1.2rem;
+    margin-top: 0.5rem;
+}
+
+.server-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.server-card {
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(8px);
+    border-radius: 20px;
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.4s ease;
+}
+
+.server-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(255, 59, 59, 0.2);
+}
+
+.server-card h2 {
+    color: #ff3b3b;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.server-status {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.status-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #28a745;
+}
+
+.status-dot.online {
+    box-shadow: 0 0 10px rgba(40, 167, 69, 0.5);
+}
+
+.server-status .player-count {
+    color: #ffffff;
+    font-size: 1.1rem;
+}
+
+.server-card p {
+    color: #f0f0f0;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.store-btn {
+    background: rgba(46, 204, 113, 0.3);
+    border: 1px solid rgba(46, 204, 113, 0.4);
+    color: #ffffff;
+    padding: 0.8rem 1.5rem;
+    border-radius: 12px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.store-btn:hover {
+    background: rgba(46, 204, 113, 0.4);
+    transform: translateY(-2px);
+}
+
+.youtube-btn {
+    background: rgba(255, 0, 0, 0.3);
+    border: 1px solid rgba(255, 0, 0, 0.4);
+    color: #ffffff;
+    padding: 0.8rem 1.5rem;
+    border-radius: 12px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.youtube-btn:hover {
+    background: rgba(255, 0, 0, 0.4);
+    transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+    .store-btn, .youtube-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+.total-players .player-count {
+    color: #ffffff;
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-shadow: 0 0 20px rgba(255, 59, 59, 0.5);
+}
+
+.support-btn {
+    background: rgba(255, 193, 7, 0.3);
+    border: 1px solid rgba(255, 193, 7, 0.4);
+    color: #ffffff;
+    padding: 0.8rem 1.5rem;
+    border-radius: 12px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.support-btn:hover {
+    background: rgba(255, 193, 7, 0.4);
+    transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+    .support-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}

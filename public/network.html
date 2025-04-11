@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Network - World of Anagra</title>
+        <link rel="stylesheet" href="base.css" />
+        <link rel="stylesheet" href="navigation.css" />
+        <link rel="stylesheet" href="network.css" />
+        <link rel="stylesheet" href="backgrounds.css" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        />
+    </head>
+    <body class="network-page">
+        <div class="container">
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="explore.html">Explore</a></li>
+                    <li><a href="hosting.html">Hosting</a></li>
+                    <li><a href="network.html">Network</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+
+            <main class="network-section">
+                <div class="network-header">
+                    <div class="server-info">
+                        <img
+                            src="images/server-logo.png"
+                            alt="Anagra Network"
+                            class="server-logo"
+                        />
+                        <div class="server-actions">
+                            <button class="copy-ip" onclick="copyIP()">
+                                <span>play.anagra.net</span>
+                                <i class="fas fa-copy"></i>
+                            </button>
+                            <a href="contact.html" class="store-btn">
+                                <i class="fas fa-shopping-cart"></i>
+                                Store
+                            </a>
+                            <a href="store.html" class="support-btn">
+                                <i class="fas fa-headset"></i>
+                                Support
+                            </a>
+                            <a
+                                href="https://youtube.com/@FireHack"
+                                class="youtube-btn"
+                            >
+                                <i class="fab fa-youtube"></i>
+                                YouTube
+                            </a>
+                            <a
+                                href="https://discord.gg/yourserver"
+                                class="discord-btn"
+                            >
+                                <i class="fab fa-discord"></i>
+                                Join Discord
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="network-stats">
+                    <div class="total-players">
+                        <h2>Network Players</h2>
+                        <span class="player-count">0</span>
+                        <p>Players Online</p>
+                    </div>
+                </div>
+
+                <div class="server-list">
+                    <div class="server-card survival">
+                        <h2>Survival</h2>
+                        <div class="server-status">
+                            <span class="status-dot"></span>
+                            <span class="player-count">0 Players</span>
+                        </div>
+                        <p>Classic Minecraft survival experience</p>
+                    </div>
+
+                    <div class="server-card lifesteal">
+                        <h2>Lifesteal</h2>
+                        <div class="server-status">
+                            <span class="status-dot"></span>
+                            <span class="player-count">0 Players</span>
+                        </div>
+                        <p>Battle for hearts in this unique gamemode</p>
+                    </div>
+
+                    <div class="server-card bedwars">
+                        <h2>Bedwars</h2>
+                        <div class="server-status">
+                            <span class="status-dot online"></span>
+                            <span class="player-count">289 Players</span>
+                        </div>
+                        <p>Protect your bed, destroy others</p>
+                    </div>
+
+                    <div class="server-card cultivation">
+                        <h2>Immortal Cultivation</h2>
+                        <div class="server-status">
+                            <span class="status-dot online"></span>
+                            <span class="player-count">266 Players</span>
+                        </div>
+                        <p>Cultivate your way to immortality</p>
+                    </div>
+                </div>
+            </main>
+
+            <footer>
+                <p>&copy; 2024 World of Anagra. All rights reserved.</p>
+            </footer>
+        </div>
+    </body>
+</html>
+
+<script>
+    function copyIP() {
+        navigator.clipboard.writeText("play.anagra.net");
+        const btn = document.querySelector(".copy-ip");
+        btn.classList.add("copied");
+        setTimeout(() => btn.classList.remove("copied"), 2000);
+    }
+</script>
+
+<!-- Add before closing body tag -->
+<script>
+    async function updateServerStatus() {
+        try {
+            const servers = {
+                survival: { ip: "in-1.firenodes.in", port: 25571 },
+                lifesteal: { ip: "lifesteal.anagra.net", port: 25566 },
+                bedwars: { ip: "bedwars.anagra.net", port: 25567 },
+                cultivation: { ip: "cultivation.anagra.net", port: 25568 },
+            };
+
+            let totalPlayers = 0;
+
+            for (const [serverName, serverInfo] of Object.entries(servers)) {
+                try {
+                    // Using a different API endpoint
+                    const response = await fetch(
+                        `https://api.minetools.eu/ping/${serverInfo.ip}/${serverInfo.port}`,
+                    );
+                    const data = await response.json();
+                    console.log(`${serverName} response:`, data); // Debug log
+
+                    const playerCount = data.players?.online || 0;
+                    totalPlayers += playerCount;
+
+                    const serverCard = document.querySelector(
+                        `.${serverName} .player-count`,
+                    );
+                    const statusDot = document.querySelector(
+                        `.${serverName} .status-dot`,
+                    );
+
+                    if (serverCard) {
+                        serverCard.textContent = `${playerCount} Players`;
+                    }
+                    if (statusDot) {
+                        statusDot.classList.toggle(
+                            "online",
+                            data.ping !== undefined,
+                        );
+                    }
+
+                    // Debug log
+                    console.log(
+                        `Updated ${serverName}: ${playerCount} players`,
+                    );
+                } catch (error) {
+                    console.error(
+                        `Error fetching ${serverName} status:`,
+                        error,
+                    );
+                    const statusDot = document.querySelector(
+                        `.${serverName} .status-dot`,
+                    );
+                    const serverCard = document.querySelector(
+                        `.${serverName} .player-count`,
+                    );
+
+                    if (statusDot) statusDot.classList.remove("online");
+                    if (serverCard) serverCard.textContent = "Offline";
+                }
+            }
+
+            // Update total player count
+            const totalPlayersElement = document.querySelector(
+                ".total-players .player-count",
+            );
+            if (totalPlayersElement) {
+                totalPlayersElement.textContent = totalPlayers;
+                console.log("Total players updated:", totalPlayers); // Debug log
+            }
+        } catch (error) {
+            console.error("Failed to fetch server status:", error);
+        }
+    }
+
+    // Update more frequently initially
+    updateServerStatus();
+    setTimeout(updateServerStatus, 5000); // Try again after 5 seconds
+    setInterval(updateServerStatus, 30000); // Then every 30 seconds
+</script>

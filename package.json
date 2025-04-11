@@ -1,0 +1,16 @@
+{
+  "name": "world-of-anagra",
+  "version": "1.0.0",
+  "description": "World of Anagra website",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node --watch index.js"
+  },
+  "keywords": ["website", "fantasy", "anagra"],
+  "author": "Ives van Hoorne",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}

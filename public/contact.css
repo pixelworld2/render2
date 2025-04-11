@@ -1,0 +1,175 @@
+.contact-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.contact-showcase {
+    position: relative;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
+    border-radius: 25px;
+    padding: 4rem 2rem;
+    margin: 2rem 0;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    text-align: center;
+}
+
+.contact-info h1 {
+    color: #ffffff;
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+    text-shadow: 0 0 20px rgba(74, 144, 226, 0.5);
+}
+
+.contact-info .main-description {
+    color: #f0f0f0;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto 3rem auto;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 1rem;
+    border-radius: 12px;
+    border: none;
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 0 15px rgba(74, 144, 226, 0.3);
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.submit-btn {
+    padding: 1rem 2.5rem;
+    background: linear-gradient(45deg, #4a90e2, #357abd);
+    color: #ffffff;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(74, 144, 226, 0.4);
+    background: linear-gradient(45deg, #357abd, #4a90e2);
+}
+
+.social-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin: 3rem 0;
+}
+
+.social-btn {
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(8px);
+    border-radius: 12px;
+    padding: 1.2rem 2.5rem;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.social-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.1),
+        rgba(255, 255, 255, 0.2),
+        rgba(255, 255, 255, 0.1),
+        transparent
+    );
+    transition: 0.6s;
+}
+
+.social-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(74, 144, 226, 0.3);
+}
+
+.social-btn:hover::before {
+    left: 100%;
+}
+
+.social-btn.discord {
+    background: rgba(88, 101, 242, 0.3);
+}
+
+.social-btn.discord:hover {
+    background: rgba(88, 101, 242, 0.4);
+    box-shadow: 0 0 20px rgba(88, 101, 242, 0.3);
+}
+
+.social-btn.youtube {
+    background: rgba(255, 0, 0, 0.3);
+}
+
+.social-btn.youtube:hover {
+    background: rgba(255, 0, 0, 0.4);
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
+}
+
+.social-btn.email {
+    background: rgba(74, 144, 226, 0.3);
+}
+
+.social-btn.email:hover {
+    background: rgba(74, 144, 226, 0.4);
+    box-shadow: 0 0 20px rgba(74, 144, 226, 0.3);
+}
+
+@media (max-width: 768px) {
+    .contact-info h1 {
+        font-size: 2.5rem;
+    }
+
+    .social-buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .social-btn {
+        width: 100%;
+        max-width: 300px;
+        text-align: center;
+    }
+}
